@@ -110,13 +110,20 @@ void emoji()
     int centerX = getmaxx() / 2;
     int centerY = getmaxy() / 2;
     int faceRadius = 100;
+    setcolor(WHITE);
     circle(centerX, centerY, faceRadius);
-
+    setfillstyle(SOLID_FILL,WHITE);
+    floodfill(centerX,centerY,WHITE);
     // Draw eyes
-    int eyeRadius = 20;
-    circle(centerX - 40, centerY - 30, eyeRadius);
-    circle(centerX + 40, centerY - 30, eyeRadius);
 
+
+    int eyeRadius = 20;
+    setcolor(BLACK);
+    circle(centerX - 40, centerY - 30, eyeRadius);
+    setfillstyle(SOLID_FILL,BLACK);
+    floodfill(centerX-40,centerY-30,BLACK);
+     circle(centerX + 40, centerY - 30, eyeRadius);
+    floodfill(centerX+40,centerY-30,BLACK);
     // Draw nose (triangle)
     int noseLength = 20;
     line(centerX, centerY - 10, centerX - noseLength, centerY + 10);
@@ -125,7 +132,8 @@ void emoji()
 
     // Draw mouth (ellipse)
     ellipse(centerX, centerY + 40, 0, 180, 40, 20);
-    outtextxy(centerX-10, centerY+faceRadius+20, "Emoji!");
+    setcolor(WHITE);
+    outtextxy(centerX-20, centerY+faceRadius+20, " Angry Emoji !");
 
 }
 
